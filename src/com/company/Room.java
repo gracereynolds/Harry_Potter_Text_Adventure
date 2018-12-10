@@ -1,27 +1,28 @@
 package com.company;
 
 public class Room {
-    private Board board;
-    private String map;
     int x, y;
-
-    public Room(Board board) {
-        this.board = board;
-    }
-
+    Player person;
+    Board b;
     public Room(int x, int y) {
         this.x = x;
         this.y = y;
     }
 
-    public void enterRoom(Player x) {
+    public void enterRoom(Player a)
+    {
         System.out.println("You enter the hallway.");
+        person = a;
+        a.setX(this.x);
+        a.setY(this.y);
+    }
+    public void exitRoom(Player a)
+    {
+        b.board[person.getY()][person.getX()] = "[_]";
+        person = null;
+
     }
 
-    public String toString() {
-        map = "";
-        return map;
-    }
 
 }
 
