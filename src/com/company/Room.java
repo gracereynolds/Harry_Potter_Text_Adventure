@@ -18,7 +18,9 @@ public class Room {
     }
     public void exitRoom(Player a)
     {
-        b.board[person.getY()][person.getX()] = "[_]";
+        person = a;
+        b.board[a.getY()][a.getX()] = "[_]";
+        a.turns++;
         person = null;
 
     }

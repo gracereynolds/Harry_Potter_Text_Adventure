@@ -3,7 +3,8 @@ package com.company;
 public class Player {
     public String name, House;
     public int xloc, yloc;
-    int points;
+    int points = 0;
+    int turns = 0;
     public Player(String name, String House)
     {
         this.name = name;

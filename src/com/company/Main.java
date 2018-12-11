@@ -21,9 +21,9 @@ public class Main {
         String statement = in.nextLine();
         statement = statement.toLowerCase();
 
-        while ((!statement.equals("gryffindor")) || (!statement.equals("hufflepuff")) || (!statement.equals("ravenclaw")) || (!statement.equals("slytherin")))
+        while ((!statement.equals("Gryffindor")) || (!statement.equals("Hufflepuff")) || (!statement.equals("Ravenclaw")) || (!statement.equals("Slytherin")))
         {
-            System.out.println("Please pick a house.");
+            System.out.println("Please pick a house. Check your spelling and capitalization, because it's very case-sensitive");
             statement = in.nextLine();
             statement = statement.toLowerCase();
         }
