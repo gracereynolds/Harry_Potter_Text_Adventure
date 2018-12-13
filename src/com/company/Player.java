@@ -1,6 +1,8 @@
 package com.company;
 
 public class Player {
+
+    public static String[] Houses = {"gryffindor","slytherin","hufflepuff","ravenclaw"};
     public String name, House;
     public int xloc, yloc;
     int points = 0;
@@ -29,4 +31,14 @@ public class Player {
     {
         this.yloc = y;
     }
+
+    public static boolean checkHouse(String statement){
+        for (int i = 0; i < Houses.length; i++){
+            if (Houses[i].equals(statement)){
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
