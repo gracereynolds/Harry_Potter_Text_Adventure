@@ -37,14 +37,20 @@ public class Main {
         int XClassroom = x;
         int YClassroom = y;
 
-        // this is so that Filch won't overwrite the Classroom
+        // this is so that ReqRoom won't overwrite the Classroom
         while ((x == XClassroom) && (y == YClassroom)){
-            x = (int)(Math.random()*board.length);
-            y = (int)(Math.random()*board.length);
+            while (x + y == 0){
+                x = (int)(Math.random()*board.length);
+                y = (int)(Math.random()*board.length);
+            }
         }
+        int XReqRoom = x;
+        int YReqRoom = y;
 
-        board[x][y] = new Filch(x,y);
+        board[x][y] = new ReqRoom(x,y,YClassroom,XClassroom);
         //add the rest of the rooms into the board
+
+        
 
 
         Scanner in = new Scanner (System.in);
@@ -91,6 +97,7 @@ public class Main {
             }
         }
         in.close();
+        gameOff();
 
     }
 

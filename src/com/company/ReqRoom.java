@@ -1,11 +1,12 @@
 package com.company;
 
 public class ReqRoom extends Room {
-    private ClassRoom crm;
-    public ReqRoom (int x, int y, ClassRoom crm)
+    int c, d;
+    public ReqRoom (int x, int y, int c, int d)
     {
         super(x, y);
-        this.crm = crm;
+        this.c =c;
+        this.d = d;
     }
     @Override
     public void enterRoom(Player a)
@@ -16,7 +17,7 @@ public class ReqRoom extends Room {
         System.out.println("Pacing back and forth in a hallway, thinking about how much you need to get to class, you open the room of Requirement.");
         System.out.println("In it, you find a map with the Transfiguration classroom marked on it.");
         a.turns += 3;
-        b.board[crm.y][crm.x] = "[X]";
+        b.board[c][d] = "[X]";
     }
     @Override
     public void exitRoom(Player a)
