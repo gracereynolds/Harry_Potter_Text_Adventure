@@ -39,15 +39,14 @@ public class Main {
 
         // this is so that ReqRoom won't overwrite the Classroom
         while ((x == XClassroom) && (y == YClassroom)){
-            while (x + y == 0){
-                x = (int)(Math.random()*board.length);
-                y = (int)(Math.random()*board.length);
-            }
+            x = (int)(Math.random()*board.length);
+            y = (int)(Math.random()*board.length);
         }
         int XReqRoom = x;
         int YReqRoom = y;
 
         board[x][y] = new ReqRoom(x,y,YClassroom,XClassroom);
+
         //add the rest of the rooms into the board
 
 

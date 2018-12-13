@@ -3,6 +3,7 @@ package com.company;
 public class Player {
 
     public static String[] Houses = {"gryffindor","slytherin","hufflepuff","ravenclaw"};
+    public static int[][] boardlocations = new int[5][5];
     public String name, House;
     public int xloc, yloc;
     int points = 0;
