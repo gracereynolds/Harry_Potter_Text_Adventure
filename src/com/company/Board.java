@@ -16,6 +16,11 @@ public class Board {
             }
         }
     }
+
+    void edit(String replace, int r, int c){
+        board[r][c] = replace;
+    }
+
     public String toString()
     {
         String map = "";
@@ -29,4 +34,5 @@ public class Board {
         }
         return map;
     }
+
 }

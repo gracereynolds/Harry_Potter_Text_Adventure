@@ -9,16 +9,20 @@ public class Main {
 
     public static void main(String[] args) {
 
+        Board map = new Board(5,5);
+        map.fill();
+        map.edit("[_]",0,0);
+
+        // map is visually printed, board holds info on all the rooms
+
         // fill board with empty hallways
         Room[][] board = new Room[5][5];
-        String[][] boardprint = new String[5][5];
         for (int x = 0; x < board.length; x++){
             for (int y = 0; y < board[x].length; y++){
                 board[x][y] = new Room(x,y);
-                boardprint[x][y] = "[o]";
             }
         }
-        
+
 
 
         // create random winning room thats not at 0,0
@@ -29,10 +33,11 @@ public class Main {
             y = (int)(Math.random()*board.length);
         }
         board[x][y] = new ClassRoom(x,y);
+
         int XClassroom = x;
         int YClassroom = y;
 
-        // this is so that any Filch won't overwrite the Classroom
+        // this is so that Filch won't overwrite the Classroom
         while ((x == XClassroom) && (y == YClassroom)){
             x = (int)(Math.random()*board.length);
             y = (int)(Math.random()*board.length);
@@ -74,12 +79,12 @@ public class Main {
         Player player1 = new Player(name,house);
         board[0][0].enterRoom(player1);
         while (gameOn){
-            System.out.println(boardprint);
+            System.out.println(map);
             System.out.println("Where would you like to move? (Choose N, S, E, W)");
             String move = in.nextLine();
             if(validMove(move, player1, board))
             {
-                System.out.println(boardprint);
+                System.out.println(map);
             }
             else {
                 System.out.println("Please choose a valid move.");
