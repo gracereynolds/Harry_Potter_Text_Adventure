@@ -13,6 +13,7 @@ public class Filch extends Room {
         person = a;
         a.setX(this.x);
         a.setY(this.y);
+        b.board[a.getY()][a.getX()] = "[@]";
         a.turns += 10;
     }
     @Override

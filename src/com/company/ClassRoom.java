@@ -11,6 +11,7 @@ public class ClassRoom extends Room {
         person = a;
         a.setX(this.x);
         a.setY(this.y);
+        b.board[a.getY()][a.getX()] = "[@]";
         System.out.print("Professor McGonagall looks up as you enter the class room. 'Ah, " + a.name + ". ");
         if(a.turns < 50)
         {

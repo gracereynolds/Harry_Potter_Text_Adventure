@@ -15,6 +15,7 @@ public class Room {
         person = a;
         a.setX(this.x);
         a.setY(this.y);
+        b.board[a.getY()][a.getX()] = "[@]";
     }
     public void exitRoom(Player a)
     {

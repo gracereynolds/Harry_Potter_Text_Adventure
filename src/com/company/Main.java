@@ -50,7 +50,7 @@ public class Main {
         board[x][y] = new ReqRoom(x,y,YClassroom,XClassroom);
         //add the rest of the rooms into the board
 
-        
+
 
 
         Scanner in = new Scanner (System.in);
@@ -81,6 +81,8 @@ public class Main {
         System.out.println("Welcome to " +house+ ", " +name+ "!");
         System.out.println("");
         //unfinished: describe setting and rules and stuff, introductory
+        //make a key to let player know which symbols mean what
+        // @ = player
 
         Player player1 = new Player(name,house);
         board[0][0].enterRoom(player1);
