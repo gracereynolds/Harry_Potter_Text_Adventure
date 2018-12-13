@@ -1,11 +1,11 @@
 package com.company;
 
 public class ReqRoom extends Room {
-    int c, d;
+    private int c, d;
     public ReqRoom (int x, int y, int c, int d)
     {
         super(x, y);
-        this.c =c;
+        this.c = c;
         this.d = d;
     }
     @Override
