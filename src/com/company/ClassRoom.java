@@ -23,5 +23,6 @@ public class ClassRoom extends Room {
             System.out.println("You're late. I should transfigure you into a pocket watch, at least then you'd be on time. " + (a.turns - 50) + " points from " + a.House + ".");
             a.points -= a.turns - 50;
         }
+        Main.gameOff();
     }
 }

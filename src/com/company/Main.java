@@ -11,7 +11,6 @@ public class Main {
 
         Board map = new Board(5,5);
         map.fill();
-        map.edit("[_]",0,0);
 
         // map is visually printed, board holds info on all the rooms
 
@@ -32,22 +31,51 @@ public class Main {
             x = (int)(Math.random()*board.length);
             y = (int)(Math.random()*board.length);
         }
-        board[x][y] = new ClassRoom(x,y);
+        board[y][x] = new ClassRoom(x,y);
 
         int XClassroom = x;
         int YClassroom = y;
 
         // this is so that ReqRoom won't overwrite the Classroom
-        while ((x == XClassroom) && (y == YClassroom)){
+        while ((x == XClassroom && y == YClassroom) || (x == 0 && y == 0)){
             x = (int)(Math.random()*board.length);
             y = (int)(Math.random()*board.length);
         }
         int XReqRoom = x;
         int YReqRoom = y;
 
-        board[x][y] = new ReqRoom(x,y,YClassroom,XClassroom);
+        board[YReqRoom][XReqRoom] = new ReqRoom(XReqRoom,YReqRoom,XClassroom,YClassroom);
 
         //add the rest of the rooms into the board
+        int py1 = 0, px1 = 0, py2 = 0, px2 = 0;
+        while ((px1 == XClassroom && py1 == YClassroom) || (px1 == XReqRoom && py1 == YReqRoom) || (px1 == 0 && py1 == 0))
+        {
+            px1 = (int)(Math.random()*board.length);
+            py1 = (int)(Math.random()*board.length);
+        }
+        board[py1][px1] = new Peeves(px1, py1);
+        while ((px2 == XClassroom && py2 == YClassroom) || (px2 == XReqRoom && py2 == YReqRoom) || (px2 == 0 && py2 == 0) || (px1 == px2 && py1 == py2))
+        {
+            px2 = (int)(Math.random()*board.length);
+            py2 = (int)(Math.random()*board.length);
+        }
+        board[py2][px2] = new Peeves(px2, py2);
+        int fx1 = 0, fy1 = 0;
+        while ((fx1 == XClassroom && fy1 == YClassroom) || (fx1 == XReqRoom && fy1 == YReqRoom) || (fx1 == 0 && fy1 == 0) || (fx1 == px1 && fy1 == py1) || (fx1 == px2 && fy1 == py2))
+        {
+            fx1 = (int)(Math.random()*board.length);
+            fy1 = (int)(Math.random()*board.length);
+        }
+        board[fy1][fx1] = new Filch(fx1, fy1);
+
+        int lry = 0 , lrx = 0;
+        while ((lrx == XClassroom && lry == YClassroom) || (lrx == XReqRoom && lry == YReqRoom) || (lrx == 0 && lry == 0) || (lrx == px1 && lry == py1) || (lrx == px2 && lry == py2) || (lrx == fx1 && lry == fy1))
+        {
+            lrx = (int)(Math.random()*board.length);
+            lry = (int)(Math.random()*board.length);
+        }
+        board[lry][lrx] = new LostRoom(lrx, lry);
+
 
 
 
@@ -60,6 +88,7 @@ public class Main {
         while (name.length() > 20)
         {
             System.out.println("Please pick a name under 20 characters.");
+            name = in.nextLine();
         }
         
 
@@ -98,7 +127,6 @@ public class Main {
             }
         }
         in.close();
-        gameOff();
 
     }
 
